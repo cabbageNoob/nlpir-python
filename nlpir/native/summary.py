@@ -1,11 +1,10 @@
 # coding=utf-8
 from nlpir.native.nlpir_base import NLPIRBase
 from ctypes import c_char_p, c_int, c_float, create_string_buffer
-import os
 
 
 class Summary(NLPIRBase):
-    load_mode = os.RTLD_LAZY
+    load_mode = NLPIRBase.RTLD_LAZY
 
     @property
     def dll_name(self):
@@ -40,7 +39,7 @@ class Summary(NLPIRBase):
 
         :return:
         """
-        return self.get_func("DS_GetLastErrMsg", None, c_char_p)()
+        return self.get_func("DS_GetLastErrorMsg", None, c_char_p)()
 
     @NLPIRBase.byte_str_transform
     def single_doc(self, text: str, sum_rate: float = 0.0, sum_len: int = 250, html_tag_remove: int = 0):

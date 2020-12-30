@@ -3,7 +3,7 @@
 from setuptools import setup, find_packages
 import nlpir
 
-with open("README.md") as f:
+with open("README.md", encoding="utf-8") as f:
     readme = f.read()
 dependencies = [
     'requests',
@@ -22,7 +22,7 @@ setup(
     python_requires='>=3.6',
     install_requires=dependencies,
     include_package_data=True,
-    package_data={'nlpir': ['Data/*.*', 'Data/*/*', 'lib/*']},
+    package_data={'nlpir': ['Data/*.*', 'Data/*/*', 'Data/Sentiment/Data/*', 'Data/Sentiment/Data/*/*', 'lib/*']},
     keywords=['nlpir', 'nlp', 'Chinese word segmentation', 'ictclas', 'CWS'],
     test_suite='tests',
     platforms=[
